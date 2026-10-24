@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171c1b">
+  <meta name="description" content="Uma recepção em 8 bits, feita com pessoas de verdade. Assista à chegada da nossa banda.">
+  <title>Boas-vindas em 8 bits</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <a class="brand" href="./" aria-label="Boas-vindas em 8 bits, início"><span class="pixel-cross" aria-hidden="true"></span> Boas-vindas <span class="brand-detail">em 8 bits</span></a>
+      <span class="header-note">Nossa turma. Um novo jogo.</span>
+    </header>
+
+    <main>
+      <div class="intro"><h1>Que bom ter você aqui.</h1><p>Chega mais. A banda já está chegando também.</p></div>
+
+      <section class="player" id="player" aria-label="Animação de boas-vindas">
+        <div class="screen">
+          <video id="video" preload="auto" muted playsinline loop poster="assets/cena.png" aria-label="Guitarrista, baterista, cantora e tecladista chegam em sequência e tocam juntos" tabindex="0">
+            <source src="assets/boas-vindas.mp4" type="video/mp4">
+            Seu navegador não reproduz este vídeo. <a href="assets/boas-vindas.mp4">Baixe a animação.</a>
+          </video>
+          <button class="start-overlay" id="start-overlay" aria-label="Reproduzir animação"><span class="big-play" aria-hidden="true">▶</span><span>Começar</span></button>
+          <p class="video-error" id="video-error" hidden>Não foi possível carregar a animação. <a href="assets/boas-vindas.mp4">Abrir o vídeo</a></p>
+          <span class="screen-status" id="screen-status" aria-live="polite"></span>
+        </div>
+
+        <div class="controls">
+          <div class="seek-row"><label class="sr-only" for="seek">Posição do vídeo</label><input id="seek" type="range" min="0" max="32" value="0" step="0.05" aria-valuetext="0 de 32 segundos"><span class="time" id="time">00:00 / 00:32</span></div>
+          <div class="control-row">
+            <div class="transport">
+              <button class="button primary" id="play" aria-label="Reproduzir animação"><span id="play-icon" aria-hidden="true">▶</span><span id="play-text">Reproduzir</span></button>
+              <button class="button" id="restart" title="Recomeçar (R)"><span aria-hidden="true">↺</span> Recomeçar</button>
+            </div>
+            <div class="view-controls"><label class="repeat"><input type="checkbox" id="repeat" checked> Repetir</label><button class="button" id="fullscreen" title="Modo telão (F)"><svg aria-hidden="true" viewBox="0 0 20 20"><path d="M2 7V2h5M13 2h5v5M18 13v5h-5M7 18H2v-5"/></svg><span id="fullscreen-text">Modo telão</span></button></div>
+          </div>
+        </div>
+      </section>
+
+      <nav class="chapters" aria-label="Ir para a chegada de um músico">
+        <span class="chapter-heading">Quem vem aí</span>
+        <button data-time="0.8"><span class="chapter-number">01</span> Guitarrista</button>
+        <button data-time="5"><span class="chapter-number">02</span> Baterista</button>
+        <button data-time="12.2"><span class="chapter-number">03</span> Cantora</button>
+        <button data-time="16.2"><span class="chapter-number">04</span> Tecladista</button>
+        <button data-time="23.2"><span aria-hidden="true">♫</span> Todo mundo</button>
+      </nav>
+    </main>
+
+    <footer><p>Feito com a nossa turma, para receber você.</p><a href="assets/boas-vindas.mp4" download>Baixar animação <span aria-hidden="true">↓</span></a></footer>
+  </div>
+</body>
+</html>
