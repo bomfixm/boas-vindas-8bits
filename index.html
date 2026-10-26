@@ -8,6 +8,7 @@
   <title>Boas-vindas em 8 bits</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <script src="assets/cena/dados.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -22,17 +23,15 @@
 
       <section class="player" id="player" aria-label="Animação de boas-vindas">
         <div class="screen">
-          <video id="video" preload="auto" muted playsinline loop poster="assets/cena.png" aria-label="Guitarrista, baterista, cantora e tecladista chegam em sequência e tocam juntos" tabindex="0">
-            <source src="assets/boas-vindas.mp4" type="video/mp4">
-            Seu navegador não reproduz este vídeo. <a href="assets/boas-vindas.mp4">Baixe a animação.</a>
-          </video>
+          <canvas id="scene" width="320" height="180" role="img" aria-label="Guitarrista, baterista, cantora e tecladista chegam em sequência e tocam juntos" tabindex="0"></canvas>
+          <noscript><p class="video-error">A animação precisa de JavaScript. <a href="assets/boas-vindas-8bits-1080p.mp4">Abrir o vídeo</a></p></noscript>
           <button class="start-overlay" id="start-overlay" aria-label="Reproduzir animação"><span class="big-play" aria-hidden="true">▶</span><span>Começar</span></button>
-          <p class="video-error" id="video-error" hidden>Não foi possível carregar a animação. <a href="assets/boas-vindas.mp4">Abrir o vídeo</a></p>
+          <p class="video-error" id="scene-error" hidden>Não foi possível carregar a animação. <a href="assets/boas-vindas-8bits-1080p.mp4">Abrir o vídeo</a></p>
           <span class="screen-status" id="screen-status" aria-live="polite"></span>
         </div>
 
         <div class="controls">
-          <div class="seek-row"><label class="sr-only" for="seek">Posição do vídeo</label><input id="seek" type="range" min="0" max="32" value="0" step="0.05" aria-valuetext="0 de 32 segundos"><span class="time" id="time">00:00 / 00:32</span></div>
+          <div class="seek-row"><label class="sr-only" for="seek">Posição da animação</label><input id="seek" type="range" min="0" max="38" value="0" step="0.05" aria-valuetext="0 de 38 segundos"><span class="time" id="time">00:00 / 00:37</span></div>
           <div class="control-row">
             <div class="transport">
               <button class="button primary" id="play" aria-label="Reproduzir animação"><span id="play-icon" aria-hidden="true">▶</span><span id="play-text">Reproduzir</span></button>
@@ -45,15 +44,15 @@
 
       <nav class="chapters" aria-label="Ir para a chegada de um músico">
         <span class="chapter-heading">Quem vem aí</span>
-        <button data-time="0.8"><span class="chapter-number">01</span> Guitarrista</button>
-        <button data-time="5"><span class="chapter-number">02</span> Baterista</button>
-        <button data-time="12.2"><span class="chapter-number">03</span> Cantora</button>
-        <button data-time="16.2"><span class="chapter-number">04</span> Tecladista</button>
-        <button data-time="23.2"><span aria-hidden="true">♫</span> Todo mundo</button>
+        <button data-chapter="guitarrista"><span class="chapter-number">01</span> Guitarrista</button>
+        <button data-chapter="baterista"><span class="chapter-number">02</span> Baterista</button>
+        <button data-chapter="cantora"><span class="chapter-number">03</span> Cantora</button>
+        <button data-chapter="tecladista"><span class="chapter-number">04</span> Tecladista</button>
+        <button data-chapter="todos"><span aria-hidden="true">♫</span> Todo mundo</button>
       </nav>
     </main>
 
-    <footer><p>Feito com a nossa turma, para receber você.</p><a href="assets/boas-vindas.mp4" download>Baixar animação <span aria-hidden="true">↓</span></a></footer>
+    <footer><p>Feito com a nossa turma, para receber você.</p><div class="footer-links"><a href="anterior/">Versão anterior</a><a href="assets/boas-vindas-8bits-1080p.mp4" download>Baixar vídeo para a TV <span aria-hidden="true">↓</span></a></div></footer>
   </div>
 </body>
 </html>
